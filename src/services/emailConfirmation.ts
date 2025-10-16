@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer"
 
-export const emailConfirmation = async(to) => {
+export const emailConfirmation = async(to, token) => {
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -88,7 +88,7 @@ export const emailConfirmation = async(to) => {
                             the button below. This helps us ensure your account’s security.
                         </p>
                         <a
-                            href="{{confirmationLink}}"
+                            href="http://localhost:3000/users/verify?token=${token}"
                             class="button"
                             target="_blank"
                         >
@@ -96,7 +96,7 @@ export const emailConfirmation = async(to) => {
                         </a>
                         </div>
                         <div class="footer">
-                        <p>© 2025 PlantShop. All rights reserved.</p>
+                        <p>© 2025 APP. All rights reserved.</p>
                         </div>
                     </div>
                     </body>
